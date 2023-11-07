@@ -1,0 +1,302 @@
+@font-face {
+    font-family: 'SPACE MISSION Regular'; /* Define a name for your font */
+    src: url('./fonts/space-mission-font/SpaceMission-rgyw9.otf') format('opentype');
+    /* You can add more source formats here (e.g., woff, woff2, ttf) */
+}
+
+@font-face {
+    font-family: 'Orbitron Medium'; /* Define a name for your font */
+    src: url('./Orbitron Medium.otf') format('opentype');
+    /* You can add more source formats here (e.g., woff, woff2, ttf) */
+}
+
+body {
+    background-color: #000;
+}
+
+body h1, h2, h3, h4, h5 {
+    font-family: 'Orbitron Medium', sans-serif;
+    color: rgba(0, 128, 0, 1);
+}
+
+.ft, p {
+    font-family: 'Lato', sans-serif;
+    color: #FAFAFA;
+}
+
+
+#starry-night-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2; /* To place it behind other content */
+}
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Place particles behind the hero and starry night background */
+}
+
+/* Custom Navbar Styles */
+.navbar {
+    background-color: transparent;
+    padding: 10px 12px;
+    transition: background-color 0.5s;
+}
+
+.navbar.semi-opaque {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-opaque white */
+}
+.navbar-brand {
+    margin-right: 0;
+}
+
+/* Show the NavbarNav when the menu is open on smaller screens */
+.navbar-toggler[aria-expanded="true"] + #navbarNav {
+    transform: translateY(0);
+}
+
+.navbar-toggler {
+    margin-right: -5px;
+}
+
+.navbar-toggler img {
+    width: 70px; /* Adjust the width as needed */
+    height: auto;
+}
+
+.menu-ikon {
+    transition: transform 0.5s;
+}
+
+.flipped {
+    transform: scaleY(-1);
+}
+
+.navbar-nav {
+    font-size: 18px;
+    padding: 20px;
+}
+
+.navbar .navbar-nav .nav-link {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    color: rgba(0, 128, 0, 1);
+    font-family: 'Orbitron Medium', sans-serif;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 128, 0, 0.3);
+}
+
+
+.navbar-toggler:focus,
+.navbar-toggler:active {
+  outline: none !important;
+  box-shadow: none;
+  border-color: none;
+}
+
+.logo {
+    max-width: 120px;
+}
+
+
+.hero {
+     position: relative;
+     height: 80vh;
+     background-color: rgba(0, 0, 0, 0.5);
+     overflow: hidden;
+     padding-bottom: 50px;
+}
+
+
+#text-container {
+    text-align: center;
+    z-index: 2;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 400px;
+    padding-right: 400px;
+    height: 100%; /* Ensure the text container takes up the entire height of the hero */
+}
+
+#typed-text {
+
+     font-size: 2rem;
+     font-weight: bold;
+     transform: translateY(90%);
+     color: rgba(240, 240, 240, 0.9);
+     text-shadow: 2px 2px 6px rgba(0, 128, 0, 1);
+}
+
+
+#progress-bar-container {
+    width: 10%;
+    height: 10px;
+    background-color: rgba(0, 128, 0, 0.5);
+    position: absolute;
+    bottom: 0;
+    transition: opacity 0.5s;
+    box-shadow: 0 0 5px 2px rgba(0, 128, 0, 1);
+    border-radius: 5px;
+}
+
+#progress-bar {
+    width: 0;
+    background-color: rgba(0, 128, 0, 1);
+    height: 100%;
+    box-shadow: 0 0 5px 2px rgba(0, 128, 0, 1);
+    transition: width 0.5s, opacity 0.5s;
+    border-radius: 5px;
+}
+
+#progress-bar.hidden {
+    opacity: 0; /* Set opacity to 0 when hidden */
+}
+
+#about, #portfolio, #aspirations, #skills, #contact, #navbarNav, .foot, .navbar-toggler {
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.5s ease-in-out, opacity 1s ease-in-out;
+    overflow: hidden;
+}
+
+#about.visible, #portfolio.visible, #aspirations.visible, #skills.visible, #contact.visible,  #navbarNav.visible, .foot.visible, .navbar-toggler.visible {
+    max-height: 2000px; /* Adjust this value based on your content's height */
+    opacity: 1;
+    transition: max-height 0.5s ease-in-out, opacity 1s ease-in-out;
+}
+
+
+/* Add your existing CSS styles for the skills section here */
+
+ #skills {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .skills-container {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .skills-container h2 {
+            color: rgba(0, 128, 0, 1);
+        }
+
+        .skills-container p {
+            font-size: 16px;
+        }
+
+        .mother-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .container-child {
+            width: 300px;
+            margin: 15px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.4);
+            border-radius: 8px;
+            box-shadow: 0 0 5px  rgba(173, 255, 47, 0.5);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .container-child h5 {
+            color: rgba(0, 128, 0, 1);
+        }
+
+
+        .container-child:hover {
+            transform: scale(1.05);
+        }
+
+
+
+#preloader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000; /* Background color for the preloader container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Ensure it's on top of other elements */
+  opacity: 1;
+  transition: opacity 1s; /* Adjust the time for preloader display (2s) */
+}
+
+#preloader {
+  width: 50px; /* Adjust the size of the preloader */
+  height: 50px;
+  border: 5px solid rgba(0, 128, 0, 0.3); /* Green border for the preloader */
+  border-top: 5px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+.foot {
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+    width: 100%; /* Optionally, set the width to 100% to span the full width of the viewport */
+    background-color: rgba(0, 0, 0, 0.7); /* Set the background color if needed */
+    padding: 10px; /* Add padding if needed */
+}
+
+
+@media (max-width: 768px) {
+    .hero {
+        height: 70vh;
+    }
+    #navbarNav {
+        display: flex;
+        position: fixed;
+        margin-bottom: 5px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        justify-content: center;
+        align-items: center;
+        background: transparent; /* Background color */
+        transform: translateY(100%); /* Slide it below the viewport */
+        transition: transform 0.3s ease-in-out;
+    }
+    #text-container {
+        padding: 30px; /* Adjust the height for smaller screens (40% viewport height) */
+    }
+
+    #typed-text {
+       transform: translateY(55%);
+   }
+
+    #progress-bar-container {
+        width: 40%; /* Adjust the height for smaller screens (40% viewport height) */
+    }
+}
