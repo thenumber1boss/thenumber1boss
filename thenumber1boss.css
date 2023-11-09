@@ -166,7 +166,7 @@ body h1, h2, h3, h4, h5 {
     opacity: 0; /* Set opacity to 0 when hidden */
 }
 
-#about, #quote, portfolio, #aspirations, #skills, #contact, #navbarNav, .foot, .navbar-toggler {
+#about, #quote, #portfolio, #aspirations, #skills, #contact, #navbarNav, .foot, .navbar-toggler {
     max-height: 0;
     opacity: 0;
     transition: max-height 0.5s ease-in-out, opacity 1s ease-in-out;
@@ -293,13 +293,21 @@ body h1, h2, h3, h4, h5 {
     text-align: center;
 }
 
-.putting-in-the-work-container {
+.holding {
+    box-shadow: 0 0 5px  rgba(173, 255, 47, 0.5);
+    border-radius: 10px;
 }
 
-.work-card {
+  .hr-line{
+    border: 0;
+    border-top: 2px solid #333;
+    margin: 10px 40px;
+}
+
+.work-card1, .work-card2 {
     background: transparent;
     padding: 0 20px 0 20px;
-    margin-top: 5px;
+    margin-top: 10px;
     border-radius: 10px;
     font-size: 22px;
     text-align: left;
@@ -309,7 +317,7 @@ body h1, h2, h3, h4, h5 {
     width: 100%;
     height: auto;
     border-radius: 10px;
-    margin: 20px 0 10px 0;
+    margin: 0 0 10px 0;
 }
 
 
