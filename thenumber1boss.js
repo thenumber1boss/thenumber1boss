@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
 function revealHiddenSections() {
-    const hiddenSections = document.querySelectorAll('#about, #portfolio, #aspirations, #skills, #contact, #navbarNav, .foot, .navbar-toggler');
+    const hiddenSections = document.querySelectorAll('#about, #quote, #portfolio, #aspirations, #skills, #contact, #navbarNav, .foot, .navbar-toggler');
     hiddenSections.forEach(function (section) {
         setTimeout(function () {
             section.classList.add('visible');
