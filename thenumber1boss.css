@@ -166,14 +166,14 @@ body h1, h2, h3, h4, h5 {
     opacity: 0; /* Set opacity to 0 when hidden */
 }
 
-#about, #portfolio, #aspirations, #skills, #contact, #navbarNav, .foot, .navbar-toggler {
+#about, #quote, #portfolio, #aspirations, #skills, #contact, #navbarNav, .foot, .navbar-toggler {
     max-height: 0;
     opacity: 0;
     transition: max-height 0.5s ease-in-out, opacity 1s ease-in-out;
     overflow: hidden;
 }
 
-#about.visible, #portfolio.visible, #aspirations.visible, #skills.visible, #contact.visible,  #navbarNav.visible, .foot.visible, .navbar-toggler.visible {
+#about.visible, #quote.visible, #portfolio.visible, #aspirations.visible, #skills.visible, #contact.visible,  #navbarNav.visible, .foot.visible, .navbar-toggler.visible {
     max-height: 2000px; /* Adjust this value based on your content's height */
     opacity: 1;
     transition: max-height 0.5s ease-in-out, opacity 1s ease-in-out;
@@ -227,6 +227,61 @@ body h1, h2, h3, h4, h5 {
         .container-child:hover {
             transform: scale(1.05);
         }
+
+
+/* Add your custom styles for the Celestial Story section here */
+
+.celestial-container {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.celestial-container p {
+    font-size: 16px;
+}
+
+.celestial-content {
+    background: linear-gradient(transparent, rgba(128, 0, 128, 0.3));
+    border-radius: 10px;
+    margin-top: 20px;
+    padding: 5px;
+}
+
+.celestial-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.celestial-about-card {
+    background-color: #333;
+    opacity: 0.8;
+    padding: 10px;
+    margin: 10px 0 10px 0;
+    border-radius: 10px;
+}
+
+.about-card p {
+    font-size: 22px;
+}
+
+
+.quote-container {
+    background: transparent; /* Transparent background */
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.quote-text {
+    font-size: 36px;
+    font-style: italic;
+}
+
+.quote-mark {
+    font-size: 72px; /* Adjust the size as needed */
+}
 
 
 
@@ -299,4 +354,16 @@ body h1, h2, h3, h4, h5 {
     #progress-bar-container {
         width: 40%; /* Adjust the height for smaller screens (40% viewport height) */
     }
+
+    .about-card p {
+    font-size: 16px;
+}
+
+    .quote-text {
+    font-size: 24px;
+   }
+
+   .quote-mark {
+    font-size: 48px;
+   }
 }
