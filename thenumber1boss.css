@@ -166,7 +166,7 @@ body h1, h2, h3, h4, h5 {
     opacity: 0; /* Set opacity to 0 when hidden */
 }
 
-#about, #quote, #portfolio, #aspirations, #skills, #contact, #navbarNav, .foot, .navbar-toggler {
+#about, #quote, portfolio, #aspirations, #skills, #contact, #navbarNav, .foot, .navbar-toggler {
     max-height: 0;
     opacity: 0;
     transition: max-height 0.5s ease-in-out, opacity 1s ease-in-out;
@@ -283,6 +283,35 @@ body h1, h2, h3, h4, h5 {
     font-size: 72px; /* Adjust the size as needed */
 }
 
+/* Add your custom styles for the "Putting in the Work" section */
+
+.putting-in-the-work-container {
+    background: rgba(255, 255, 255, 0);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.putting-in-the-work-container {
+}
+
+.work-card {
+    background: transparent;
+    padding: 0 20px 0 20px;
+    margin-top: 5px;
+    border-radius: 10px;
+    font-size: 22px;
+    text-align: left;
+}
+
+.work-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin: 20px 0 10px 0;
+}
+
 
 
 #preloader-container {
@@ -355,7 +384,7 @@ body h1, h2, h3, h4, h5 {
         width: 40%; /* Adjust the height for smaller screens (40% viewport height) */
     }
 
-    .about-card p {
+    .about-card, .work-card p {
     font-size: 18px;
 }
 
