@@ -392,8 +392,8 @@ body h1, h2, h3, h4, h5 {
         width: 40%; /* Adjust the height for smaller screens (40% viewport height) */
     }
 
-    .about-card, .work-card p {
-    font-size: 18px;
+    .about-card, .work-card1, .work-card2 p {
+    font-size: 17px;
 }
 
     .quote-text {
