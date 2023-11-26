@@ -28,79 +28,82 @@
     <div id="particles-js"></div>
 
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg fixed-top">
+    <nav class="navbar">
         <div class="container">
+            <div class="nav-bar">
             <a class="navbar-brand" href="#">
-                <img src="tn1b-logo2.png" alt="Your Logo" class="logo">
+                <img src="./img/tn1b-logo2.png" alt="Your Logo" class="logo">
             </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <img src="menu-ikon.png" alt="Menu" class="menu-ikon">
-        <span class="d-none d-lg-inline ml-2 tog">Menu</span>
-    </button>
-            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">Celestial Story</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#portfolio">Starry Creations</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#aspirations">Cosmic Aspirations</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Reach for the Stars</a>
-                    </li>
-                </ul>
-            </div>
         </div>
+        <div class="social-icons">
+            <a href="https://linkedin.com/in/thenumber1boss" target="_blank"><img src="./img/linkedin.png" alt="LinkedIn"></a>
+            <a href="https://web.facebook.com/thenumber1boss/" target="_blank"><img src="./img/facebook.png" alt="Facebook"></a>
+            <a href="https://twitter.com/thenumber1_boss" target="_blank"><img src="./img/x.png" alt="Twitter"></a>
+            <a href="https://discord.com/channels/thenumber1boss" target="_blank"><img src="./img/discord.png" alt="Discord"></a>
+            <!-- Add more social media icons as needed -->
+        </div>
+    </div>
     </nav>
 
+
+
+<!-- Hero -->
 <section class="hero">
+        <img src="./img/planet1.png" alt="Planet 3" id="animatedImage" class="pulse">
     <div id="text-container">
         <h1 id="typed-text" class="ft-lg"></h1>
          <div id="progress-bar-container">
          <div id="progress-bar"></div>
         </div>
     </div>
+ 
 </section>
 
+
+
+
+
+<!-- Skills Section -->
  <section id="skills">
         <div class="skills-container">
             <h2>A Cluster of Skills</h2>
-            <p class="ft">"Every star in a cluster shines uniquely, yet the collective beauty is simply mesmerizing."</p>
+            <p class="bold">"Every star in a cluster shines uniquely, yet the collective beauty is simply mesmerizing."</p>
         </div>
         <div class="mother-container">
-            <div class="container-child" id="container1">
+            <div class="container-child" id="container1" style="background-image: url(./img/mech.png);">
                 <h5 class="card-title">B.ENG Mechanical Engineering</h5>
                 <p class="card-text ft">Automobile specialization.</p>
             </div>
-            <div class="container-child" id="container2">
+            <div class="container-child" id="container2" style="background-image: url(./img/sw.png);">
                 <h5 class="card-title">Software Engineering</h5>
                 <p class="card-text ft">Front End Specialization.</p>
             </div>
-            <div class="container-child" id="container3">
+            <div class="container-child" id="container3" style="background-image: url(./img/mkt.png);">
                 <h5 class="card-title">Marketìng</h5>
                 <p class="card-text ft">Digital and door-to-door marketing.</p>
             </div>
-            <div class="container container-child" id="container4">
+            <div class="container container-child" id="container4" style="background-image: url(./img/cnt.png);">
                 <h5 class="card-title">Content Creation</h5>
                 <p class="card-text ft">Video, Graphic, and Written Content.</p>
             </div>
-            <div class="container-child" id="container5">
+            <div class="container-child" id="container5" style="background-image: url(./img/vid.png);">
                 <h5 class="card-title">Video Editing</h5>
                 <p class="card-text ft">DaVinci Resolve and CapCut. (Exploring Premiere Pro and After Effects).</p>
             </div>
-            <div class="container-child">
+            <div class="container-child" style="background-image: url(./img/play.png);">
                 <h5 class="card-title">Screenplay</h5>
                 <p class="card-text ft">Effective Storytelling skills.</p>
             </div>
-            <div class="container-child">
+            <div class="container-child" style="background-image: url(./img/aud.png);">
                 <h5 class="card-title">Audio Mixing</h5>
                 <p class="card-text ft">Proficient in Adobe Audition, and Ableton Live.</p>
             </div>
         </div>
     </section>
+
+
+
+
 
     <!-- About (Celestial Story) Section -->
     <section id="about">
@@ -109,11 +112,11 @@
         <div class="col-12">
             <div class="celestial-container">
                 <h2>Celestial Story</h2>
-                <p>"If you don't tell your story, the universe won't hear it!"</p>
+                <p class="bold">"If you don't tell your story, the universe won't hear it!"</p>
                 <div class="row celestial-content">
                     <div class="col-md-6">
                         <div class="celestial-image">
-                            <img src="./tn1b.jpg" alt="Celestial Image">
+                            <img src="./img/tn1b.jpg" alt="Celestial Image">
                         </div>
                     </div>
 <div class="col-md-6">
@@ -132,27 +135,30 @@
 </div>
     </section>
 
-    <section id="quote">
+    <section class="quote" style="background-image: url('./img/bg-quote.png'); background-size: cover; height: 300px; width: 100%;">
     <div class="container-fluid">
         <div class="row justify-content-center align-items-center">
             <div class="col-md-6 quote-container">
-                <p class="quote-text"><span class="quote-mark">"</span>Your only limitation is the limit of your imagination and how much work you are ready to put into its realization.<span class="quote-mark">"</span></p>
+                <p class="quote-text"><span class="quote-mark">" </span>Your only limitation is the limit of your imagination and how much work you are ready to put into its realization.<span class="quote-mark"> "</span></p>
             </div>
         </div>
     </div>
     </section>
 
+
+
+
     <!-- Portfolio (Starry Creations) Section -->
+
 <section id="portfolio">
-<!-- Inside the "Putting in the Work" section -->
 <div class="putting-in-the-work-container">
     <h2>Putting in the Work</h2>
-    <p>"A journey through the universe starts with a take off"</p>
+    <p class="bold">"A journey through the universe starts with a take off"</p>
     <div class="holding">
     <div class="row">
         <div class="col-md-12">
             <div class="work-image">
-                <img src="./grit-hero.png" alt="Putting in the Work Image">
+                <img src="./img/grit-hero.png" alt="Putting in the Work Image">
             </div>
         </div>
     </div>
@@ -175,53 +181,150 @@
 </div>
 </section>
 
-    <!-- Cosmic Aspirations Section -->
-    <section id="aspirations">
-        <div class="container">
-            <h2>Cosmic Aspirations</h2>
-            <p>Content about your future aspirations goes here.</p>
+
+
+<!-- Quote -->
+
+<section class="quote">
+    <div class="container-fluid" style="background-image: url('./img/bg-quote.png'); background-size: cover; height: auto; width: 100%; border-radius: 30px;">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-6 quote-container">
+                <p class="quote-text"><span class="quote-mark">" </span>
+Challenging traditional beliefs fosters self-awareness, enabling personal growth toward a better version of ourselves.<span class="quote-mark"> "</span></p>
+            </div>
+            <div class="col-md-6 imagine pulsing"> 
+                <img src="./img/imagination.png"></div>
         </div>
+    </div>
     </section>
 
-    <!-- Contact (Reach for the Stars) Section -->
-    <section id="contact">
-        <div class="container">
-            <h2>Reach for the Stars</h2>
-            <p>Contact information and how to reach you goes here.</p>
+
+
+
+<!-- vlog video section -->
+
+<section id="vlog">
+<div class="vlog-video">
+   <h2>120s With The Boss</h2>
+    <p class="bold">"A weekly video podcast"</p>
+<div class="container big-man">
+    <div class="row" id="videoList"></div>
+    <div class="container" style="padding: 10px;">
+       <div id="loadingMessage" class="text-center mt-3">Please wait...</div>
+    <div id="errorMessage" class="text-center mt-3 text-danger"></div>
+    <div id="refreshText" class="text-center mt-3 mb-3 text-primary" style="display: none;">Refresh</div>
+    <div class="col-md-12" style="display: flex; justify-content: center; align-items: center;">
+        <button id="loadMoreBtn">Load More</button>
+    </div>
+    </div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row sub-mother">
+    <div class=" col-md-6">
+        <p  style="margin: 0; font-size: 18px; padding: 20px;" >Did you find my podcast insightful? <a style="text-decoration: underline; cursor: pointer; font-weight: bold;" onclick="subscribeToChannel()"> Subscribe now to stay updated on new episodes!</a></p>
+    </div>
+    <div class="col-md-12 d-md-none">
+        <hr class="hr-line">
+    </div>
+        <div class="col-md-6">
+       <p style="margin: 0; font-size: 18px; padding: 20px">120s with the boss is one of the numerous programes you will find on <a style="text-decoration: underline; font-weight: bold; cursor: pointer" onclick="subscribeToChannel()"> Informed TV</a>, a subsidiary of Grit Informed Media that is focused on content creation.</p>
+   </div>
+</div>
+   </div>
+</section>
+
+
+
+<!-- Quote, Contact & Footer -->
+
+<div id="btm-up" style="background-image: url('./img/bg-quote.png'); background-size: cover; height: 100%; width: 100%;">
+ <section class="quote">
+    <div class="container-fluid">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-6 quote-container">
+                <p class="quote-text"><span class="quote-mark">" </span>Collaboration is the art of combining strengths, perspectives, and ideas, transforming the ordinary into the extraordinary.<span class="quote-mark"> "</span></p>
+            </div>
         </div>
+    </div>
     </section>
+
+ <section id="contact">
+    <div class="container">
+        <h2>Reach for the Stars</h2>
+        <div class="contact-container row">
+        <p class="contact-description col-md-6">Unsure where to begin, don't hesitate to contact me. The possibilities are boundless.
+        </p>
+
+        <div class="social-icons col-md-6 contact-icons">
+            <a href="https://linkedin.com/in/thenumber1boss" target="_blank"><img src="./img/linkedin.png" alt="LinkedIn"></a>
+            <a href="https://web.facebook.com/thenumber1boss/" target="_blank"><img src="./img/facebook.png" alt="Facebook"></a>
+            <a href="https://twitter.com/thenumber1_boss" target="_blank"><img src="./img/x.png" alt="Twitter"></a>
+            <a href="https://discord.com/channels/thenumber1boss" target="_blank"><img src="./img/discord.png" alt="Discord"></a>
+            <!-- Add more social media icons as needed -->
+        </div>
+    </div>
+    </div>
+</section>
+    <!-- Footer -->
+    <footer class="text-center py-3 foot">
+        <p>&copy; 2023 thenumber1boss</p>
+        <div>
+        <p class="foot2"> Powered by <a href="https://gritinformedia.tech" target="_blank" style="color: rgba(0, 200, 0, 0.8); font-weight: bold;">Grit Informed Media</a></p>
+      </div>
+    </footer>
+</div>
+
 
     <div id="preloader-container">
   <div id="preloader"></div>
 </div>
 
-    <!-- Footer -->
-    <footer class="text-center py-3 foot">
-        <p>&copy; 2023 thenumber1boss</p>
-    </footer>
+<!--  modal structure -->
+
+<div id="videoModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeVideoModal()">&times;</span>
+    <div id="videoPlayer"></div>
+    <div id="customControls">
+      <button id="rewindButton"><<</button>
+      <button id="playButton">Play</button>
+      <button id="pauseButton">Pause</button>
+      <button id="fastForwardButton">>></button>
+    </div>
+  </div>
+</div>
+
 
     <!-- jQuery and Bootstrap JS CDNs -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-        <!-- Include Three.js and your StarryNight.js -->
+       
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
-
+ <!-- Three.js and StarryNight.js -->
     <script src="StarryNight.js"></script>
     <script src="thenumber1boss.js"></script>
 
 <script>
-  // Hide the preloader with a fade-out effect after 2 seconds
+
+
+  // Hide the preloader with a fade-out effect 
   setTimeout(function () {
     const preloaderContainer = document.getElementById('preloader-container');
     preloaderContainer.style.opacity = '0'; // Reduce opacity to 0 for fade-out
     setTimeout(function () {
       preloaderContainer.style.display = 'none'; // Hide the preloader after the fade-out
-    }, 100); // 1 second for the fade-out
-  }, 300); // 2 seconds before starting the fade-out
+    }, 100); // 1 mili second for the fade-out
+  }, 300); // 3 mili seconds before starting the fade-out
 </script>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+
+
 </body>
 </html>
