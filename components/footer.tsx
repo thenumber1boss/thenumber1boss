@@ -55,7 +55,7 @@ export default function Footer() {
           viewport={{ once: true }}
           className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-slate-800 text-center text-gray-400"
         >
-          <p className="text-xs sm:text-sm">&copy; 2025 TechEntrepreneur. All rights reserved.</p>
+          <p className="text-xs sm:text-sm">&copy; 2025 TechEntrepreneur - Adebayo Bamijoko.</p>
         </motion.div>
       </div>
     </footer>

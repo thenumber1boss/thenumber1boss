@@ -1,7 +1,5 @@
 "use client"
 
-import type React from "react"
-
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { Send, Mail, Calendar, Github, Linkedin } from "lucide-react"
@@ -9,19 +7,75 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 
+const GOOGLE_FORM_ACTION_URL =
+  "https://docs.google.com/forms/u/0/d/e/1FAIpQLSeKDvLACmCQ1yL3EkK2vM8sxuatRKtlOqr27tvpU67v-fcq5w/formResponse"
+
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
+    honeypot: "",
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [errors, setErrors] = useState<string | null>(null)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
+
+  const validateForm = () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    const wordCount = formData.message.trim().split(/\s+/).length
+
+    if (formData.honeypot) return "Bot detected."
+    if (!formData.name || !formData.email || !formData.message) return "All fields are required."
+    if (!emailRegex.test(formData.email)) return "Please enter a valid email."
+    if (wordCount < 10) return "Message should be at least 10 words."
+
+    return null
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission (integrate with Formspree or similar)
-    console.log("Form submitted:", formData)
-    // Reset form
-    setFormData({ name: "", email: "", message: "" })
+
+    const validationError = validateForm()
+    if (validationError) {
+      setErrors(validationError)
+      return
+    }
+
+    setIsSubmitting(true)
+    setErrors(null)
+
+    // Extract today's date
+    const today = new Date()
+    const year = today.getFullYear().toString()
+    const month = (today.getMonth() + 1).toString()
+    const day = today.getDate().toString()
+
+    const formPayload = new FormData()
+    formPayload.append("entry.2116052852", formData.name)
+    formPayload.append("entry.1558582620", formData.email)
+    formPayload.append("entry.93691977", formData.message)
+    formPayload.append("entry.1183170113_year", year)
+    formPayload.append("entry.1183170113_month", month)
+    formPayload.append("entry.1183170113_day", day)
+
+    try {
+      await fetch(GOOGLE_FORM_ACTION_URL, {
+        method: "POST",
+        mode: "no-cors",
+        body: formPayload,
+      })
+
+      setFormData({ name: "", email: "", message: "", honeypot: "" })
+      setIsSubmitted(true)
+      setTimeout(() => setIsSubmitted(false), 4000)
+    } catch (err) {
+      console.error("Submission error:", err)
+      alert("❌ Something went wrong. Please try again.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -58,51 +112,86 @@ export default function Contact() {
             viewport={{ once: true }}
           >
             <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
-              <div>
-                <Input
-                  type="text"
-                  name="name"
-                  placeholder="Your Name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="bg-slate-800 border-slate-700 text-white placeholder-gray-400 h-12 sm:h-14"
-                />
-              </div>
-              <div>
-                <Input
-                  type="email"
-                  name="email"
-                  placeholder="Your Email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="bg-slate-800 border-slate-700 text-white placeholder-gray-400 h-12 sm:h-14"
-                />
-              </div>
-              <div>
-                <Textarea
-                  name="message"
-                  placeholder="Tell me about your project..."
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={5}
-                  className="bg-slate-800 border-slate-700 text-white placeholder-gray-400 text-sm sm:text-base"
-                />
-              </div>
-              <Button 
-                type="submit" 
-                className="w-full bg-emerald-500 hover:bg-emerald-600 text-white group h-12 sm:h-14 text-sm sm:text-base"
-                size="lg"
-              >
-                Send Message
-                <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              {/* Honeypot field */}
+              <input
+                type="text"
+                name="honeypot"
+                value={formData.honeypot}
+                onChange={handleChange}
+                style={{ display: "none" }}
+                tabIndex={-1}
+                autoComplete="off"
+              />
+
+              <Input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className="bg-slate-800 border-slate-700 text-white placeholder-gray-400 h-12 sm:h-14"
+              />
+
+              <Input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="bg-slate-800 border-slate-700 text-white placeholder-gray-400 h-12 sm:h-14"
+              />
+
+              <Textarea
+                name="message"
+                placeholder="Tell me about your project..."
+                value={formData.message}
+                onChange={handleChange}
+                required
+                rows={5}
+                className="bg-slate-800 border-slate-700 text-white placeholder-gray-400 text-sm sm:text-base"
+              />
+
+              {errors && (
+                <div className="text-red-400 text-sm sm:text-base">{errors}</div>
+              )}
+
+              {!isSubmitted ? (
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-emerald-500 hover:bg-emerald-600 text-white group h-12 sm:h-14 text-sm sm:text-base flex items-center justify-center"
+                  size="lg"
+                >
+                  {isSubmitting ? (
+                    <motion.div
+                      animate={{ rotate: 360 }}
+                      transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+                    >
+                      <Send className="h-4 w-4 animate-spin" />
+                    </motion.div>
+                  ) : (
+                    <>
+                      Send Message
+                      <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </>
+                  )}
+                </Button>
+              ) : (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5 }}
+                  className="text-green-400 text-center font-semibold"
+                >
+                  ✅ Message Sent! I’ll get back to you soon.
+                </motion.div>
+              )}
             </form>
           </motion.div>
 
-          {/* Contact Info */}
+          {/* Contact Info (unchanged) */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -131,7 +220,7 @@ export default function Contact() {
                   variant="outline"
                   size="icon"
                   className="border-emerald-400 text-emerald-400 hover:bg-emerald-400 hover:text-slate-900 h-10 w-10 sm:h-12 sm:w-12"
-                  onClick={() => window.open('https://github.com/thenumber1boss', '_blank')}
+                  onClick={() => window.open("https://github.com/thenumber1boss", "_blank")}
                 >
                   <Github className="h-4 w-4 sm:h-5 sm:w-5" />
                 </Button>
@@ -139,7 +228,7 @@ export default function Contact() {
                   variant="outline"
                   size="icon"
                   className="border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-slate-900 h-10 w-10 sm:h-12 sm:w-12"
-                  onClick={() => window.open('https://linkedin.com/in/thenumber1boss', '_blank')}
+                  onClick={() => window.open("https://linkedin.com/in/thenumber1boss", "_blank")}
                 >
                   <Linkedin className="h-4 w-4 sm:h-5 sm:w-5" />
                 </Button>
@@ -149,8 +238,7 @@ export default function Contact() {
             <div className="glass-effect rounded-xl p-4 sm:p-6">
               <h3 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4">Quick Response</h3>
               <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
-                I typically respond to all inquiries within 24 hours. For urgent projects, feel free to mention it in
-                your message.
+                I typically respond to all inquiries within 24 hours. For urgent projects, feel free to mention it in your message.
               </p>
             </div>
           </motion.div>

@@ -77,9 +77,63 @@ const projects = [
     technologies: ["PWA", "IndexedDB", "Service Workers", "Firebase", "React"],
     demoUrl: "https://enceipt.vercel.app",
   },
+  {
+    id: 5,
+    title: "Bamidele and Sons - Metal Artistry",
+    tag: "Business Websites",
+    image: "/bamidele-sons.png",
+    description:
+      "Elegant showcase of metal artistry and custom railing systems. Features a comprehensive product catalogue with detailed craftsmanship displays and streamlined contact options.",
+    features: [
+      "Interactive product catalogue with filtering",
+      "High-resolution image gallery",
+      "Quick contact integration",
+      "Mobile-optimized browsing experience",
+      "Custom quote request system",
+      "Project showcase with detailed case studies",
+    ],
+    technologies: ["Next.js", "Tailwind CSS", "Framer Motion", "React Query", "FormSpree"],
+    demoUrl: "https://bamiandsons.vercel.app",
+  },
+  {
+    id: 6,
+    title: "Ionworx Limited - Solar Solutions",
+    tag: "Business Websites",
+    image: "/ionworx.png",
+    description:
+      "Comprehensive solar energy solutions platform featuring an innovative power calculator, project portfolio, and integrated communication channels for residential and commercial clients.",
+    features: [
+      "Interactive solar power calculator",
+      "Project showcase with filterable gallery",
+      "WhatsApp integration for instant consultation",
+      "Contact form with automated follow-up",
+      "Responsive design for all devices",
+      "Energy savings estimator tool",
+    ],
+    technologies: ["Next.js", "Tailwind CSS", "Chart.js", "WhatsApp Business API", "Vercel Analytics"],
+    demoUrl: "https://ionworx.ng",
+  },
+  {
+    id: 7,
+    title: "Dede Consult LLC",
+    tag: "Business Websites",
+    image: "/dede-consult.png",
+    description:
+      "Professional consulting firm website with a focus on health, education, and finance sectors. Delivers a polished digital presence with service highlights and client engagement tools.",
+    features: [
+      "Service area showcases with detailed information",
+      "Client testimonial carousel",
+      "Appointment scheduling integration",
+      "Resource library with downloadable materials",
+      "Team member profiles with expertise areas",
+      "Contact form with service categorization",
+    ],
+    technologies: ["Next.js", "Tailwind CSS", "Framer Motion", "Calendly API", "React Hook Form"],
+    demoUrl: "https://dede-consult.vercel.app",
+  },
 ]
 
-const categories = ["All", "FinTech", "E-commerce", "EdTech", "Business Tool"]
+const categories = ["All", "FinTech", "E-commerce", "EdTech", "Business Tool", "Business Websites"]
 
 export default function Projects() {
   const [selectedCategory, setSelectedCategory] = useState("All")
