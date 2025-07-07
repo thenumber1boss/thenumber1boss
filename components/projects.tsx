@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { ExternalLink, Eye, X } from "lucide-react"
+import { ExternalLink, Eye } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 
@@ -140,13 +140,14 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<(typeof projects)[0] | null>(null)
   const [previewProject, setPreviewProject] = useState<(typeof projects)[0] | null>(null)
 
-  const filteredProjects = selectedCategory === "All" ? projects : projects.filter((project) => project.tag === selectedCategory)
+  const filteredProjects =
+    selectedCategory === "All" ? projects : projects.filter((project) => project.tag === selectedCategory)
 
-  const openDetails = (project: typeof projects[0]) => {
+  const openDetails = (project: (typeof projects)[0]) => {
     setSelectedProject(project)
   }
 
-  const openPreview = (project: typeof projects[0]) => {
+  const openPreview = (project: (typeof projects)[0]) => {
     setPreviewProject(project)
   }
 
@@ -168,10 +169,10 @@ export default function Projects() {
           viewport={{ once: true }}
           className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-slate-900 dark:text-white">
             Featured <span className="gradient-text">Projects</span>
           </h2>
-          <p className="text-base sm:text-xl text-gray-300 max-w-3xl mx-auto mb-6 sm:mb-8">
+          <p className="text-base sm:text-xl text-slate-700 dark:text-gray-300 max-w-3xl mx-auto mb-6 sm:mb-8">
             Real-world applications that blend technical excellence with business impact
           </p>
 
@@ -185,8 +186,8 @@ export default function Projects() {
                 onClick={() => setSelectedCategory(category)}
                 className={
                   selectedCategory === category
-                    ? "bg-emerald-500 hover:bg-emerald-600 text-xs sm:text-sm px-3 py-2 sm:px-4 sm:py-2"
-                    : "border-emerald-400 text-emerald-400 hover:bg-emerald-400 hover:text-slate-900 text-xs sm:text-sm px-3 py-2 sm:px-4 sm:py-2"
+                    ? "bg-emerald-500 hover:bg-emerald-600 text-white text-xs sm:text-sm px-3 py-2 sm:px-4 sm:py-2"
+                    : "border-emerald-500 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500 hover:text-white text-xs sm:text-sm px-3 py-2 sm:px-4 sm:py-2 bg-transparent"
                 }
               >
                 {category}
@@ -203,7 +204,7 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
               viewport={{ once: true }}
-              className="glass-effect rounded-xl overflow-hidden hover:scale-105 transition-transform duration-300"
+              className="glass-effect rounded-xl overflow-hidden hover:scale-105 transition-transform duration-300 border border-slate-200 dark:border-white/10"
             >
               <div className="relative">
                 <img
@@ -219,14 +220,18 @@ export default function Projects() {
               </div>
 
               <div className="p-4 sm:p-6">
-                <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-white">{project.title}</h3>
-                <p className="text-sm sm:text-base text-gray-300 mb-4 sm:mb-6 leading-relaxed">{project.description}</p>
+                <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-slate-900 dark:text-white">
+                  {project.title}
+                </h3>
+                <p className="text-sm sm:text-base text-slate-700 dark:text-gray-300 mb-4 sm:mb-6 leading-relaxed">
+                  {project.description}
+                </p>
 
                 <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
                   <Button
                     variant="outline"
                     size="sm"
-                    className="border-emerald-400 text-emerald-400 hover:bg-emerald-400 hover:text-slate-900 flex-1 text-xs sm:text-sm px-3 py-2 sm:px-4 sm:py-2"
+                    className="border-emerald-500 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500 hover:text-white flex-1 text-xs sm:text-sm px-3 py-2 sm:px-4 sm:py-2 bg-transparent"
                     onClick={() => openDetails(project)}
                   >
                     Learn More
@@ -234,7 +239,7 @@ export default function Projects() {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-slate-900 flex-1 text-xs sm:text-sm px-3 py-2 sm:px-4 sm:py-2"
+                    className="border-blue-500 text-blue-600 dark:text-blue-400 hover:bg-blue-500 hover:text-white flex-1 text-xs sm:text-sm px-3 py-2 sm:px-4 sm:py-2 bg-transparent"
                     onClick={() => openPreview(project)}
                   >
                     <Eye className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
@@ -248,11 +253,13 @@ export default function Projects() {
 
         {/* Project Details Modal */}
         <Dialog open={!!selectedProject} onOpenChange={closeDetails}>
-          <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto bg-slate-800 border-slate-700">
+          <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto bg-white dark:bg-slate-800 border-slate-300 dark:border-slate-700">
             {selectedProject && (
               <>
                 <DialogHeader>
-                  <DialogTitle className="text-xl sm:text-2xl font-bold text-white mb-4">{selectedProject.title}</DialogTitle>
+                  <DialogTitle className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4">
+                    {selectedProject.title}
+                  </DialogTitle>
                 </DialogHeader>
 
                 <div className="space-y-4 sm:space-y-6">
@@ -263,13 +270,19 @@ export default function Projects() {
                   />
 
                   <div>
-                    <h4 className="text-base sm:text-lg font-semibold text-white mb-2 sm:mb-3">Project Overview</h4>
-                    <p className="text-sm sm:text-base text-gray-300 leading-relaxed">{selectedProject.description}</p>
+                    <h4 className="text-base sm:text-lg font-semibold text-slate-900 dark:text-white mb-2 sm:mb-3">
+                      Project Overview
+                    </h4>
+                    <p className="text-sm sm:text-base text-slate-700 dark:text-gray-300 leading-relaxed">
+                      {selectedProject.description}
+                    </p>
                   </div>
 
                   <div>
-                    <h4 className="text-base sm:text-lg font-semibold text-white mb-2 sm:mb-3">Key Features</h4>
-                    <ul className="list-disc list-inside text-sm sm:text-base text-gray-300 space-y-1 sm:space-y-2">
+                    <h4 className="text-base sm:text-lg font-semibold text-slate-900 dark:text-white mb-2 sm:mb-3">
+                      Key Features
+                    </h4>
+                    <ul className="list-disc list-inside text-sm sm:text-base text-slate-700 dark:text-gray-300 space-y-1 sm:space-y-2">
                       {selectedProject.features.map((feature, index) => (
                         <li key={index}>{feature}</li>
                       ))}
@@ -277,10 +290,15 @@ export default function Projects() {
                   </div>
 
                   <div>
-                    <h4 className="text-base sm:text-lg font-semibold text-white mb-2 sm:mb-3">Technologies Used</h4>
+                    <h4 className="text-base sm:text-lg font-semibold text-slate-900 dark:text-white mb-2 sm:mb-3">
+                      Technologies Used
+                    </h4>
                     <div className="flex flex-wrap gap-2">
                       {selectedProject.technologies.map((tech, index) => (
-                        <span key={index} className="bg-emerald-500/20 text-emerald-400 px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm">
+                        <span
+                          key={index}
+                          className="bg-emerald-100 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm"
+                        >
                           {tech}
                         </span>
                       ))}
@@ -297,7 +315,7 @@ export default function Projects() {
                     </Button>
                     <Button
                       variant="outline"
-                      className="border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-slate-900 flex-1"
+                      className="border-blue-500 text-blue-600 dark:text-blue-400 hover:bg-blue-500 hover:text-white flex-1 bg-transparent"
                       onClick={() => openPreview(selectedProject)}
                     >
                       <Eye className="mr-2 h-4 w-4" />
@@ -312,18 +330,16 @@ export default function Projects() {
 
         {/* Iframe Viewer Modal */}
         <Dialog open={!!previewProject} onOpenChange={closePreview}>
-          <DialogContent className="max-w-6xl max-h-[90vh] p-0 bg-slate-800 border-slate-700">
+          <DialogContent className="max-w-6xl max-h-[90vh] p-0 bg-white dark:bg-slate-800 border-slate-300 dark:border-slate-700">
             {previewProject && (
               <div className="h-[70vh] sm:h-[80vh] flex flex-col">
-                <div className="flex items-center justify-between p-3 sm:p-4 border-b border-slate-700">
-                  <h3 className="text-base sm:text-lg font-semibold text-white">{previewProject.title}</h3>
+                <div className="flex items-center justify-between p-3 sm:p-4 border-b border-slate-300 dark:border-slate-700">
+                  <h3 className="text-base sm:text-lg font-semibold text-slate-900 dark:text-white">
+                    {previewProject.title}
+                  </h3>
                 </div>
-                <iframe
-                  src={previewProject.demoUrl}
-                  className="flex-1 w-full border-0"
-                  title={previewProject.title}
-                />
-                <div className="p-3 sm:p-4 border-t border-slate-700 text-center">
+                <iframe src={previewProject.demoUrl} className="flex-1 w-full border-0" title={previewProject.title} />
+                <div className="p-3 sm:p-4 border-t border-slate-300 dark:border-slate-700 text-center">
                   <Button
                     className="bg-emerald-500 hover:bg-emerald-600 text-white"
                     onClick={() => window.open(previewProject.demoUrl, "_blank")}

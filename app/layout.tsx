@@ -9,14 +9,16 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "Technical Entrepreneur | Full-Stack Developer & Product Strategist - Adebayo Bamijoko",
-  description: "I build with code and think like a founder. A technical entrepreneur who crafts digital products that deliver results.",
-  keywords: "Adebayo Bamijoko, technical entrepreneur, full-stack developer, product strategy, web development, AI integration",
+  description:
+    "I build with code and think like a founder. A technical entrepreneur who crafts digital products that deliver results.",
+  keywords:
+    "Adebayo Bamijoko, technical entrepreneur, full-stack developer, product strategy, web development, AI integration",
   authors: [{ name: "Adebayo Bamijoko" }],
   creator: "Adebayo Bamijoko",
   publisher: "Adebayo Bamijoko",
-  metadataBase: new URL('https://adebayo.gritinformedia.tech'),
+  metadataBase: new URL("https://adebayo.gritinformedia.tech"),
   alternates: {
-    canonical: '/',
+    canonical: "/",
   },
   robots: {
     index: true,
@@ -29,29 +31,30 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Technical Entrepreneur Portfolio - Adebayo Bamijoko",
     description: "Building digital products that work and deliver results",
-    url: 'https://adebayo.gritinformedia.tech',
+    url: "https://adebayo.gritinformedia.tech",
     siteName: "Adebayo Bamijoko Portfolio",
-    locale: 'en_US',
+    locale: "en_US",
     type: "website",
     images: [
       {
-        url: 'https://adebayo.gritinformedia.tech/og-image.jpg', // Create this image
+        url: "https://adebayo.gritinformedia.tech/og-image.jpg", // Create this image
         width: 1200,
         height: 630,
-        alt: 'Adebayo Bamijoko - Technical Entrepreneur',
+        alt: "Adebayo Bamijoko - Technical Entrepreneur",
       },
     ],
   },
   twitter: {
-    card: 'summary_large_image',
+    card: "summary_large_image",
     title: "Technical Entrepreneur - Adebayo Bamijoko",
     description: "Full-Stack Developer & Product Strategist",
-    creator: '@thenumber1boss', // If you have one
-    images: ['https://adebayo.gritinformedia.tech/og-image.jpg'], // Same as OG image
+    creator: "@thenumber1boss", // If you have one
+    images: ["https://adebayo.gritinformedia.tech/og-image.jpg"], // Same as OG image
   },
   verification: {
-    google: 'your-google-site-verification-code', // Add if you have one
+    google: "your-google-site-verification-code", // Add if you have one
   },
+    generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -70,7 +73,7 @@ export default function RootLayout({
       </head>
 
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
           {children}
         </ThemeProvider>
       </body>

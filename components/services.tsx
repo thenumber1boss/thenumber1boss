@@ -33,7 +33,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-12 sm:py-20 px-4 sm:px-6 bg-slate-800/50">
+    <section id="services" className="py-12 sm:py-20 px-4 sm:px-6 bg-slate-100 dark:bg-slate-800/50">
       <div className="mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -42,10 +42,10 @@ export default function Services() {
           viewport={{ once: true }}
           className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-slate-900 dark:text-white">
             What I <span className="gradient-text">Do</span>
           </h2>
-          <p className="text-base sm:text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-base sm:text-xl text-slate-700 dark:text-gray-300 max-w-3xl mx-auto">
             I offer comprehensive technical services with a strategic business perspective
           </p>
         </motion.div>
@@ -58,11 +58,15 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
               viewport={{ once: true }}
-              className="glass-effect rounded-xl p-6 sm:p-8 hover:scale-105 transition-transform duration-300"
+              className="glass-effect rounded-xl p-6 sm:p-8 hover:scale-105 transition-transform duration-300 border border-slate-200 dark:border-white/10"
             >
-              <service.icon className="h-10 w-10 sm:h-12 sm:w-12 text-emerald-400 mb-4 sm:mb-6" />
-              <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-white">{service.title}</h3>
-              <p className="text-sm sm:text-base text-gray-300 leading-relaxed">{service.description}</p>
+              <service.icon className="h-10 w-10 sm:h-12 sm:w-12 text-emerald-600 dark:text-emerald-400 mb-4 sm:mb-6" />
+              <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-slate-900 dark:text-white">
+                {service.title}
+              </h3>
+              <p className="text-sm sm:text-base text-slate-700 dark:text-gray-300 leading-relaxed">
+                {service.description}
+              </p>
             </motion.div>
           ))}
         </div>

@@ -4,24 +4,24 @@
 
 @layer base {
   :root {
-    --background: 255 255 255;
+    --background: 248 250 252;
     --foreground: 15 23 42;
     --card: 255 255 255;
     --card-foreground: 15 23 42;
     --popover: 255 255 255;
     --popover-foreground: 15 23 42;
     --primary: 15 23 42;
-    --primary-foreground: 255 255 255;
+    --primary-foreground: 248 250 252;
     --secondary: 241 245 249;
     --secondary-foreground: 15 23 42;
-    --muted: 241 245 249;
-    --muted-foreground: 100 116 139;
-    --accent: 241 245 249;
+    --muted: 226 232 240;
+    --muted-foreground: 71 85 105;
+    --accent: 226 232 240;
     --accent-foreground: 15 23 42;
-    --destructive: 239 68 68;
-    --destructive-foreground: 255 255 255;
-    --border: 226 232 240;
-    --input: 226 232 240;
+    --destructive: 220 38 38;
+    --destructive-foreground: 248 250 252;
+    --border: 203 213 225;
+    --input: 203 213 225;
     --ring: 15 23 42;
     --radius: 0.5rem;
     --chart-1: 12 76% 61%;
@@ -73,6 +73,13 @@ html {
 }
 
 .gradient-text {
+  background: linear-gradient(135deg, #059669, #dc2626);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark .gradient-text {
   background: linear-gradient(135deg, #10b981, #f87171);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -81,7 +88,6 @@ html {
 
 .glass-effect {
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .dark .glass-effect {
@@ -89,9 +95,10 @@ html {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.light .glass-effect {
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+.glass-effect {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  backdrop-filter: blur(10px);
 }
 
 /* 3D Animation Styles */
@@ -159,19 +166,6 @@ html {
 
 .sparkle {
   animation: sparkle 2s ease-in-out infinite;
-}
-
-/* Light theme text contrast fixes */
-.light .text-gray-300 {
-  @apply text-gray-600;
-}
-
-.light .text-gray-400 {
-  @apply text-gray-500;
-}
-
-.light .text-white {
-  @apply text-gray-900;
 }
 
 /* Hero text overlay effect */

@@ -28,7 +28,7 @@ const benefits = [
 
 export default function WhyWorkWithMe() {
   return (
-    <section className="py-12 sm:py-20 px-4 sm:px-6 bg-slate-800/50">
+    <section className="py-12 sm:py-20 px-4 sm:px-6 bg-slate-100 dark:bg-slate-800/50">
       <div className="mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -37,7 +37,7 @@ export default function WhyWorkWithMe() {
           viewport={{ once: true }}
           className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 text-slate-900 dark:text-white">
             Why Work <span className="gradient-text">With Me</span>
           </h2>
         </motion.div>
@@ -48,9 +48,9 @@ export default function WhyWorkWithMe() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
             viewport={{ once: true }}
-            className="glass-effect rounded-2xl p-6 sm:p-8 md:p-12 mb-8 sm:mb-12"
+            className="glass-effect rounded-2xl p-6 sm:p-8 md:p-12 mb-8 sm:mb-12 border border-slate-200 dark:border-white/10"
           >
-            <blockquote className="text-base sm:text-xl md:text-2xl text-gray-200 leading-relaxed italic text-center">
+            <blockquote className="text-base sm:text-xl md:text-2xl text-slate-800 dark:text-gray-200 leading-relaxed italic text-center">
               "I don't just code — I collaborate with business owners to understand their goals, solve problems, and
               build apps that drive growth. With a startup founder's mindset and a developer's skillset, I deliver
               solutions that make sense technically and commercially."
@@ -68,11 +68,15 @@ export default function WhyWorkWithMe() {
                 className="flex items-start space-x-3 sm:space-x-4"
               >
                 <div className="flex-shrink-0">
-                  <benefit.icon className="h-6 w-6 sm:h-8 sm:w-8 text-emerald-400" />
+                  <benefit.icon className="h-6 w-6 sm:h-8 sm:w-8 text-emerald-600 dark:text-emerald-400" />
                 </div>
                 <div>
-                  <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">{benefit.title}</h3>
-                  <p className="text-sm sm:text-base text-gray-300 leading-relaxed">{benefit.description}</p>
+                  <h3 className="text-lg sm:text-xl font-semibold text-slate-900 dark:text-white mb-2">
+                    {benefit.title}
+                  </h3>
+                  <p className="text-sm sm:text-base text-slate-700 dark:text-gray-300 leading-relaxed">
+                    {benefit.description}
+                  </p>
                 </div>
               </motion.div>
             ))}

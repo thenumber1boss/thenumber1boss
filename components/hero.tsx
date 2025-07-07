@@ -28,30 +28,34 @@ export default function Hero() {
               transition={{ delay: 0.2, duration: 0.6 }}
               className="flex items-center space-x-3 mb-4 sm:mb-8"
             >
-              <Code className="h-6 w-6 sm:h-8 sm:w-8 text-emerald-400" />
-              <span className="text-gray-400 dark:text-gray-400 light:text-gray-500">+</span>
-              <TrendingUp className="h-6 w-6 sm:h-8 sm:w-8 text-coral-400" />
+              <Code className="h-6 w-6 sm:h-8 sm:w-8 text-emerald-600 dark:text-emerald-400" />
+              <span className="text-slate-500 dark:text-gray-400">+</span>
+              <TrendingUp className="h-6 w-6 sm:h-8 sm:w-8 text-red-600 dark:text-coral-400" />
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-4 sm:mb-8 leading-tight text-white dark:text-white light:text-gray-900"
+              className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-4 sm:mb-8 leading-tight text-slate-900 dark:text-white"
             >
               I Build with <span className="gradient-text inline">Code</span>.
-              <br />I Think Like a <span className="gradient-text inline">
-                <br/>Founder</span>.
+              <br />I Think Like a{" "}
+              <span className="gradient-text inline">
+                <br />
+                Founder
+              </span>
+              .
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="text-base max-w-[90%] sm:text-xl md:text-2xl text-gray-300 dark:text-gray-300 light:text-gray-600 mb-6 sm:mb-12 leading-relaxed sm:max-w-2xl"
+              className="text-base max-w-[90%] sm:text-xl md:text-2xl text-slate-700 dark:text-gray-300 mb-6 sm:mb-12 leading-relaxed sm:max-w-2xl"
             >
               A technical entrepreneur who crafts digital products that don't just work — they{" "}
-              <span className="text-emerald-400 font-semibold">deliver results</span>.
+              <span className="text-emerald-600 dark:text-emerald-400 font-semibold">deliver results</span>.
             </motion.p>
 
             <motion.div
@@ -71,7 +75,7 @@ export default function Hero() {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-emerald-400 text-emerald-400 hover:bg-emerald-400 hover:text-slate-900 px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg shadow-lg"
+                className="border-emerald-500 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500 hover:text-white px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg shadow-lg bg-transparent"
                 onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
               >
                 Hire Me
@@ -95,10 +99,12 @@ export default function Hero() {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 1.2 + index * 0.1, duration: 0.5 }}
-                  className="glass-effect rounded-xl px-4 py-3 sm:px-6 sm:py-4 backdrop-blur-sm"
+                  className="glass-effect rounded-xl px-4 py-3 sm:px-6 sm:py-4 backdrop-blur-sm border border-slate-200 dark:border-white/10"
                 >
-                  <div className="text-lg sm:text-2xl font-bold text-emerald-400">{stat.value}</div>
-                  <div className="text-xs sm:text-sm text-gray-400 dark:text-gray-400 light:text-gray-600">{stat.label}</div>
+                  <div className="text-lg sm:text-2xl font-bold text-emerald-600 dark:text-emerald-400">
+                    {stat.value}
+                  </div>
+                  <div className="text-xs sm:text-sm text-slate-600 dark:text-gray-400">{stat.label}</div>
                 </motion.div>
               ))}
             </motion.div>

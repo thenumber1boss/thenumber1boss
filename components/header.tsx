@@ -43,7 +43,7 @@ export default function Header() {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-sm lg:text-base text-gray-300 hover:text-emerald-400 transition-colors duration-200"
+                  className="text-sm lg:text-base text-slate-700 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors duration-200"
                 >
                   {item.name}
                 </a>
@@ -67,9 +67,9 @@ export default function Header() {
     >
       <nav className="mx-auto px-4 sm:px-6 py-3 sm:py-4">
         <div className="flex items-center justify-between">
-          <motion.div 
-            initial={{ opacity: 0 }} 
-            animate={{ opacity: 1 }} 
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             className="text-lg sm:text-xl md:text-2xl font-bold gradient-text"
           >
             Adebayo Bamijoko
@@ -81,28 +81,32 @@ export default function Header() {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-sm lg:text-base text-gray-300 hover:text-emerald-400 transition-colors duration-200"
+                className="text-sm lg:text-base text-slate-700 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors duration-200"
               >
                 {item.name}
               </a>
             ))}
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              onClick={toggleTheme} 
-              className="text-gray-300 hover:text-emerald-400 h-8 w-8 lg:h-10 lg:w-10"
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleTheme}
+              className="text-slate-700 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 h-8 w-8 lg:h-10 lg:w-10"
             >
-              {resolvedTheme === "dark" ? <Sun className="h-4 w-4 lg:h-5 lg:w-5" /> : <Moon className="h-4 w-4 lg:h-5 lg:w-5" />}
+              {resolvedTheme === "dark" ? (
+                <Sun className="h-4 w-4 lg:h-5 lg:w-5" />
+              ) : (
+                <Moon className="h-4 w-4 lg:h-5 lg:w-5" />
+              )}
             </Button>
           </div>
 
           {/* Mobile Navigation Button */}
           <div className="md:hidden flex items-center space-x-2">
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              onClick={toggleTheme} 
-              className="text-gray-300 hover:text-emerald-400 h-8 w-8"
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleTheme}
+              className="text-slate-700 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 h-8 w-8"
             >
               {resolvedTheme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </Button>
@@ -110,7 +114,7 @@ export default function Header() {
               variant="ghost"
               size="icon"
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-300 hover:text-emerald-400 h-8 w-8"
+              className="text-slate-700 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 h-8 w-8"
             >
               {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
@@ -123,14 +127,14 @@ export default function Header() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden mt-3 pb-3 border-t border-slate-700/50"
+            className="md:hidden mt-3 pb-3 border-t border-slate-300 dark:border-slate-700/50"
           >
             <div className="pt-3 space-y-1">
               {navigation.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="block py-2 px-2 text-sm text-gray-300 hover:text-emerald-400 hover:bg-slate-800/50 rounded-md transition-colors duration-200"
+                  className="block py-2 px-2 text-sm text-slate-700 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-200 dark:hover:bg-slate-800/50 rounded-md transition-colors duration-200"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}

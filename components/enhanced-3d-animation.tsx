@@ -115,7 +115,7 @@ export default function Enhanced3DAnimation() {
                     delay: index * 0.2,
                   },
                 }}
-                className="text-emerald-400 dark:text-emerald-400 light:text-emerald-600 font-mono text-sm whitespace-nowrap bg-slate-800/80 dark:bg-slate-800/80 light:bg-white/80 px-3 py-2 rounded-lg backdrop-blur-sm border border-emerald-500/30"
+                className="text-emerald-400 dark:text-emerald-400 light:text-emerald-600 font-mono text-sm whitespace-nowrap bg-white/90 dark:bg-slate-800/80 px-3 py-2 rounded-lg backdrop-blur-sm border border-emerald-500/30"
                 style={{
                   transform: `perspective(1000px) rotateX(${Math.sin(index) * 10}deg)`,
                   textShadow: "0 0 10px rgba(16, 185, 129, 0.5)",
@@ -163,7 +163,7 @@ export default function Enhanced3DAnimation() {
                   delay: index * 0.1,
                   ease: "easeInOut",
                 }}
-                className="absolute text-emerald-400 dark:text-emerald-400 light:text-emerald-600 font-mono text-xs bg-slate-800/90 dark:bg-slate-800/90 light:bg-white/90 px-2 py-1 rounded backdrop-blur-sm border border-emerald-500/50"
+                className="absolute text-emerald-400 dark:text-emerald-400 light:text-emerald-600 font-mono text-xs bg-white/90 dark:bg-slate-800/90 px-2 py-1 rounded backdrop-blur-sm border border-emerald-500/50"
                 style={{
                   transformStyle: "preserve-3d",
                   boxShadow: "0 0 20px rgba(16, 185, 129, 0.4)",
