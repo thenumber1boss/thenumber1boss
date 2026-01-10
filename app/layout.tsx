@@ -1,60 +1,64 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Inter, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import StructuredData from "@/components/structured-data"
+import { profileData } from "@/lib/profile-data"
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ 
+  subsets: ["latin"],
+  variable: "--font-sans",
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+})
 
 export const metadata: Metadata = {
-  title: "Technical Entrepreneur | Full-Stack Developer & Product Strategist - Adebayo Bamijoko",
-  description:
-    "I build with code and think like a founder. A technical entrepreneur who crafts digital products that deliver results.",
-  keywords:
-    "Adebayo Bamijoko, technical entrepreneur, full-stack developer, product strategy, web development, AI integration",
-  authors: [{ name: "Adebayo Bamijoko" }],
-  creator: "Adebayo Bamijoko",
-  publisher: "Adebayo Bamijoko",
-  metadataBase: new URL("https://adebayo.gritinformedia.tech"),
-  alternates: {
-    canonical: "/",
+  title: {
+    default: `${profileData.name} | ${profileData.tagline}`,
+    template: `%s | ${profileData.name}`,
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-    },
-  },
+  description: profileData.bio.short,
+  keywords: [
+    "Adebayo Bamijoko",
+    "Technical Founder",
+    "Grit Informed Media",
+    "Kyoraq",
+    "Carton",
+    "System Architecture",
+    "African Tech Ecosystem"
+  ],
+  authors: [{ name: profileData.name }],
+  creator: profileData.name,
   openGraph: {
-    title: "Technical Entrepreneur Portfolio - Adebayo Bamijoko",
-    description: "Building digital products that work and deliver results",
-    url: "https://adebayo.gritinformedia.tech",
-    siteName: "Adebayo Bamijoko Portfolio",
-    locale: "en_US",
     type: "website",
+    locale: "en_US",
+    url: "https://adebayo.gritinformedia.tech",
+    title: `${profileData.name} - ${profileData.role}`,
+    description: profileData.bio.short,
+    siteName: profileData.company,
     images: [
       {
-        url: "https://adebayo.gritinformedia.tech/og-image.jpg", // Create this image
+        url: "/og-image.jpg", // You should update this image later
         width: 1200,
         height: 630,
-        alt: "Adebayo Bamijoko - Technical Entrepreneur",
+        alt: profileData.tagline,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Technical Entrepreneur - Adebayo Bamijoko",
-    description: "Full-Stack Developer & Product Strategist",
-    creator: "@thenumber1boss", // If you have one
-    images: ["https://adebayo.gritinformedia.tech/og-image.jpg"], // Same as OG image
+    title: `${profileData.name} - ${profileData.role}`,
+    description: profileData.bio.short,
+    creator: "@thenumber1boss",
   },
-  verification: {
-    google: "your-google-site-verification-code", // Add if you have one
+  robots: {
+    index: true,
+    follow: true,
   },
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -65,15 +69,23 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                const theme = localStorage.getItem('theme');
+                const systemPreference = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                const preferredTheme = theme || systemPreference;
+                document.documentElement.classList.toggle('dark', preferredTheme === 'dark');
+              } catch (e) {}
+            `,
+          }}
+        />
         <StructuredData />
       </head>
-
-      <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
+      <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased bg-background text-foreground`}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {children}
         </ThemeProvider>
       </body>

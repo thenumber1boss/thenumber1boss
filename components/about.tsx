@@ -1,62 +1,76 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { ExternalLink, FileText } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { profileData } from "@/lib/profile-data"
 
 export default function About() {
   return (
-    <section id="about" className="py-12 sm:py-20 px-4 sm:px-6">
-      <div className="mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="max-w-4xl mx-auto text-center"
-        >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 text-slate-900 dark:text-white">
-            About <span className="gradient-text">Me</span>
-          </h2>
+    <section id="about" className="py-24 px-4 sm:px-6 bg-background relative">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-20 items-start">
+        
+        {/* LEFT COLUMN: Sticky Founder's Mindset */}
+        {/* sticky top-32 ensures it stays in view while you scroll the long right column */}
+        <div className="md:col-span-5 md:sticky md:top-32 self-start">
+           <h2 className="text-sm font-mono text-muted-foreground uppercase tracking-widest mb-6">
+             The Founder's Mindset
+           </h2>
+           <p className="text-xl md:text-2xl md:leading-[1.5] font-medium text-primary/90">
+             {profileData.bio.long}
+           </p>
+        </div>
 
-          <div className="text-base sm:text-lg md:text-xl text-slate-700 dark:text-gray-300 leading-relaxed space-y-4 sm:space-y-6 mb-8 sm:mb-12">
-            <p>
-              I'm a technical entrepreneur who bridges the gap between cutting-edge development and strategic business
-              thinking.
-            </p>
-            <p>
-              I combine deep technical expertise with a founder's mindset to build digital products that don't just
-              function—they drive growth, solve real problems, and deliver measurable results.
-            </p>
+        {/* RIGHT COLUMN: Experience, Philosophy, & Stack */}
+        <div className="md:col-span-7 space-y-20">
+          
+
+          {/* 1. Philosophy */}
+          <div>
+            <h3 className="text-sm font-mono text-muted-foreground uppercase tracking-widest mb-8 border-b border-border pb-2">
+              Core Philosophy
+            </h3>
+            <div className="grid gap-10">
+              {profileData.philosophy.map((item, index) => (
+                <div key={index} className="group">
+                  <h4 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+                    {item.title}
+                  </h4>
+                  <p className="text-muted-foreground leading-relaxed text-sm">
+                    {item.content}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            viewport={{ once: true }}
-            className="flex flex-col sm:flex-row items-center justify-center space-y-3 sm:space-y-0 sm:space-x-6"
-          >
-            <Button
-              variant="outline"
-              size="sm"
-              className="border-emerald-500 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500 hover:text-white group w-full sm:w-auto px-4 py-2 sm:px-6 sm:py-3 bg-transparent"
-            >
-              <FileText className="mr-2 h-4 w-4" />
-              View Resume
-              <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              className="border-blue-500 text-blue-600 dark:text-blue-400 hover:bg-blue-500 hover:text-white group w-full sm:w-auto px-4 py-2 sm:px-6 sm:py-3 bg-transparent"
-              onClick={() => window.open("https://linkedin.com/in/thenumber1boss", "_blank")}
-            >
-              LinkedIn Profile
-              <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </motion.div>
-        </motion.div>
+          {/* 2. Technical Architecture */}
+          <div>
+            <h3 className="text-sm font-mono text-muted-foreground uppercase tracking-widest mb-8 border-b border-border pb-2">
+              Technical Architecture
+            </h3>
+            <div className="grid grid-cols-2 gap-8">
+               <div>
+                 <span className="block text-xs font-bold uppercase text-primary mb-4">Engineering</span>
+                 <ul className="space-y-3">
+                   {profileData.skills.technical.map(skill => (
+                     <li key={skill} className="text-muted-foreground text-sm border-b border-border/40 pb-2 last:border-0">
+                       {skill}
+                     </li>
+                   ))}
+                 </ul>
+               </div>
+               <div>
+                 <span className="block text-xs font-bold uppercase text-primary mb-4">Strategy</span>
+                 <ul className="space-y-3">
+                   {profileData.skills.strategic.map(skill => (
+                     <li key={skill} className="text-muted-foreground text-sm border-b border-border/40 pb-2 last:border-0">
+                       {skill}
+                     </li>
+                   ))}
+                 </ul>
+               </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
   )

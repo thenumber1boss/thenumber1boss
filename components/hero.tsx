@@ -1,122 +1,98 @@
+// components/hero.tsx
 "use client"
 
 import { motion } from "framer-motion"
-import { ArrowRight, Code, TrendingUp } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import Enhanced3DAnimation from "./enhanced-3d-animation"
+import { ArrowDownRight, Globe, Terminal } from "lucide-react"
+import { PROFILE } from "@/lib/data"
 
 export default function Hero() {
+  // Stagger animation configuration for a cohesive "load" feel
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.3,
+      },
+    },
+  }
+
+  const item = {
+    hidden: { y: 20, opacity: 0 },
+    show: { y: 0, opacity: 1, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
+  }
+
   return (
-    <section className="min-h-screen relative overflow-hidden px-4 sm:px-6 pt-16 sm:pt-20">
-      {/* Background animation area */}
-      <div className="hero-animation-bg">
-        <Enhanced3DAnimation />
-      </div>
+    <section className="relative min-h-[90vh] flex flex-col justify-end pb-20 px-6 md:px-12 pt-32 border-b border-border bg-background">
+      {/* Background Technical Grid - Subtle, rigid, engineering-focused */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none dark:opacity-50" />
 
-      <div className="mx-auto relative z-10">
-        <div className="min-h-screen flex items-center">
-          {/* Main content with overlapping design */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
-            className="hero-text-overlay max-w-4xl"
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="flex items-center space-x-3 mb-4 sm:mb-8"
-            >
-              <Code className="h-6 w-6 sm:h-8 sm:w-8 text-emerald-600 dark:text-emerald-400" />
-              <span className="text-slate-500 dark:text-gray-400">+</span>
-              <TrendingUp className="h-6 w-6 sm:h-8 sm:w-8 text-red-600 dark:text-coral-400" />
-            </motion.div>
+      <motion.div 
+        variants={container}
+        initial="hidden"
+        animate="show"
+        className="max-w-[1800px] w-full mx-auto z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end"
+      >
+        
+        {/* Left Column: Context & Metadata */}
+        <div className="lg:col-span-4 flex flex-col justify-between h-full gap-12">
+          <motion.div variants={item} className="flex items-center gap-3 text-xs font-mono tracking-widest uppercase text-muted-foreground">
+            Founder
+            <span className="text-muted-foreground/50">|</span>
+            Creative Director
 
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-4 sm:mb-8 leading-tight text-slate-900 dark:text-white"
-            >
-              I Build with <span className="gradient-text inline">Code</span>.
-              <br />I Think Like a{" "}
-              <span className="gradient-text inline">
-                <br />
-                Founder
-              </span>
-              .
-            </motion.h1>
+          </motion.div>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              className="text-base max-w-[90%] sm:text-xl md:text-2xl text-slate-700 dark:text-gray-300 mb-6 sm:mb-12 leading-relaxed sm:max-w-2xl"
-            >
-              A technical entrepreneur who crafts digital products that don't just work — they{" "}
-              <span className="text-emerald-600 dark:text-emerald-400 font-semibold">deliver results</span>.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7, duration: 0.8 }}
-              className="flex flex-col sm:flex-row sm:items-start space-y-3 sm:space-y-0 sm:space-x-6"
-            >
-              <Button
-                size="lg"
-                className="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg group shadow-lg shadow-emerald-500/25"
-                onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
-              >
-                View Projects
-                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-emerald-500 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500 hover:text-white px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg shadow-lg bg-transparent"
-                onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-              >
-                Hire Me
-              </Button>
-            </motion.div>
-
-            {/* Floating stats/badges */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1, duration: 0.8 }}
-              className="mt-8 sm:mt-16 flex flex-wrap gap-3 sm:gap-4"
-            >
-              {[
-                { label: "Projects Delivered", value: "50+" },
-                { label: "Years Experience", value: "5+" },
-                { label: "Happy Clients", value: "30+" },
-              ].map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 1.2 + index * 0.1, duration: 0.5 }}
-                  className="glass-effect rounded-xl px-4 py-3 sm:px-6 sm:py-4 backdrop-blur-sm border border-slate-200 dark:border-white/10"
-                >
-                  <div className="text-lg sm:text-2xl font-bold text-emerald-600 dark:text-emerald-400">
-                    {stat.value}
-                  </div>
-                  <div className="text-xs sm:text-sm text-slate-600 dark:text-gray-400">{stat.label}</div>
-                </motion.div>
-              ))}
-            </motion.div>
+          <motion.div variants={item} className="max-w-md">
+            <p className="text-lg md:text-xl text-foreground/70 leading-relaxed text-balance font-light">
+              {PROFILE.identity.summary}
+            </p>
           </motion.div>
         </div>
-      </div>
 
-      {/* Ambient background effects */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
-      </div>
+        {/* Right Column: The "Manifesto" Headline */}
+        <div className="lg:col-span-8 relative">
+          <motion.h1 
+            variants={item}
+            className="text-[13vw] lg:text-[10vw] font-bold leading-[0.85] tracking-tighter text-primary"
+          >
+            Engineering
+          </motion.h1>
+          <motion.div variants={item} className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
+            <h1 className="text-[13vw] lg:text-[10vw] font-bold leading-[0.85] tracking-tighter text-foreground/40">
+              Business
+            </h1>
+            <div className="flex flex-col gap-2 mt-2 md:mt-0">
+               <span className="h-px w-full md:w-32 bg-border" />
+               <span className="font-mono text-xs text-muted-foreground uppercase tracking-widest">Logic & Systems</span>
+            </div>
+          </motion.div>
+          <motion.h1 
+            variants={item}
+            className="text-[13vw] lg:text-[10vw] font-bold leading-[0.85] tracking-tighter text-primary"
+          >
+            Logic.
+          </motion.h1>
+        </div>
+
+      </motion.div>
+
+      {/* Floating Action / Scroll Indicator */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 1 }}
+        className="absolute bottom-12 right-6 md:right-12 flex items-center gap-4"
+      >
+        <span className="font-mono text-xs text-muted-foreground/60 uppercase hidden md:block">Explore Ventures</span>
+        <button 
+            onClick={() => document.getElementById('ventures')?.scrollIntoView({ behavior: 'smooth' })}
+            className="w-12 h-12 border border-border rounded-full flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
+        >
+          <ArrowDownRight className="w-5 h-5" />
+        </button>
+      </motion.div>
     </section>
   )
 }
