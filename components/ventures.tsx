@@ -4,8 +4,10 @@ import { motion } from "framer-motion"
 import { ExternalLink, Layers, ShoppingBag, Cpu, Receipt, Share2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { profileData } from "@/lib/profile-data"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 export default function Ventures() {
+  const isMobile = useIsMobile()
   return (
     <section id="ventures" className="py-24 px-4 sm:px-6 border-t border-border/40 bg-secondary/20">
       <div className="max-w-6xl mx-auto">
@@ -67,7 +69,7 @@ export default function Ventures() {
              whileHover={{ y: -5 }}
              className="md:col-span-1 rounded-3xl bg-card border border-border/50 p-8 flex flex-col justify-between relative group"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className={`absolute inset-0 bg-gradient-to-br from-orange-500/5 to-red-500/5 ${isMobile ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} transition-opacity duration-500`} />
             <div>
               <div className="p-2 bg-primary/5 rounded-lg w-fit mb-4">
                 <Share2 className="h-6 w-6 text-primary" />
@@ -82,7 +84,7 @@ export default function Ventures() {
                   </span>
                 ))}
               </div>
-            <div className="mt-6 pt-4 border-t border-border/50 flex items-center justify-between">
+            <div className={`mt-6 pt-4 border-t border-border/50 flex items-center justify-between ${!isMobile && 'opacity-0 group-hover:opacity-100'} transition-opacity duration-300`}>
                <span className="text-xs font-mono text-muted-foreground uppercase">{profileData.ventures[2].status}</span>
                <span className="text-xs text-primary font-medium">Coming Soon</span>
             </div>
@@ -93,7 +95,7 @@ export default function Ventures() {
              whileHover={{ y: -5 }}
              className="md:col-span-1 rounded-3xl bg-card border border-border/50 p-8 flex flex-col justify-between relative group"
           >
-             <div className="absolute inset-0 bg-gradient-to-br from-gray-500/5 to-slate-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+             <div className={`absolute inset-0 bg-gradient-to-br from-gray-500/5 to-slate-500/5 ${isMobile ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} transition-opacity duration-500`} />
              <div>
                <div className="p-2 bg-primary/5 rounded-lg w-fit mb-4">
                  <Receipt className="h-6 w-6 text-primary" />
@@ -101,7 +103,7 @@ export default function Ventures() {
                <h3 className="text-xl font-bold mb-2">{profileData.ventures[3].name}</h3>
                <p className="text-muted-foreground text-sm">{profileData.ventures[3].description}</p>
              </div>
-             <div className="mt-4 pt-4 border-t border-border/50">
+             <div className={`mt-4 pt-4 border-t border-border/50 ${!isMobile && 'opacity-0 group-hover:opacity-100'} transition-opacity duration-300`}>
                <a href={profileData.ventures[3].url} target="_blank" className="text-sm font-medium hover:underline inline-flex items-center">
                  enceipt.vercel.app <ExternalLink className="ml-1 h-3 w-3" />
                </a>
@@ -113,7 +115,7 @@ export default function Ventures() {
              whileHover={{ y: -5 }}
              className="md:col-span-1 rounded-3xl bg-card border border-border/50 p-8 flex flex-col justify-between relative group"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-teal-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className={`absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-teal-500/5 ${isMobile ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} transition-opacity duration-500`} />
             <div>
               <div className="p-2 bg-primary/5 rounded-lg w-fit mb-4">
                 <ShoppingBag className="h-6 w-6 text-primary" />
@@ -121,7 +123,7 @@ export default function Ventures() {
               <h3 className="text-xl font-bold mb-2">{profileData.ventures[4].name}</h3>
               <p className="text-muted-foreground text-sm">{profileData.ventures[4].description}</p>
             </div>
-            <div className="mt-4 pt-4 border-t border-border/50">
+            <div className={`mt-4 pt-4 border-t border-border/50 ${!isMobile && 'opacity-0 group-hover:opacity-100'} transition-opacity duration-300`}>
               <a href={profileData.ventures[4].url} target="_blank" className="text-sm font-medium hover:underline inline-flex items-center">
                 carton.com.ng <ExternalLink className="ml-1 h-3 w-3" />
               </a>

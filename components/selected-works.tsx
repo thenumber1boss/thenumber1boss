@@ -2,8 +2,10 @@
 
 import { ArrowUpRight } from "lucide-react"
 import { profileData } from "@/lib/profile-data"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 export default function SelectedWorks() {
+  const isMobile = useIsMobile()
   return (
     <section id="other-projects" className="py-24 px-4 sm:px-6 bg-secondary/10 border-t border-border/40">
       <div className="max-w-6xl mx-auto">
@@ -39,7 +41,7 @@ export default function SelectedWorks() {
                     href={project.url} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="opacity-0 group-hover:opacity-100 transition-opacity text-primary"
+                    className={`${isMobile ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} transition-opacity text-primary`}
                   >
                     <ArrowUpRight className="h-4 w-4" />
                   </a>

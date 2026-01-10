@@ -184,7 +184,7 @@ export default function Contact() {
               type="submit"
               variant="outline"
               disabled={status === "submitting"}
-              className="rounded-full px-8 border-primary text-primary hover:bg-primary hover:text-white transition-all"
+              className="rounded-full px-8 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all"
             >
               {status === "submitting"
                 ? "Sending..."
