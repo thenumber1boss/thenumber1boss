@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ExternalLink, Layers, ShoppingBag, Cpu, Receipt, Share2 } from "lucide-react"
+import { ExternalLink, Layers, ShoppingBag, Cpu, Receipt, Share2, Bot } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { profileData } from "@/lib/profile-data"
 import { useIsMobile } from "@/hooks/use-mobile"
@@ -90,7 +90,36 @@ export default function Ventures() {
             </div>
           </motion.div>
 
-          {/* 3. Enceipt (Utility) - Bottom Left */}
+          {/* 3. Axii (Outbound Engine) - Full Row Left (2 Cols) */}
+          <motion.div
+            whileHover={{ y: -5 }}
+            className="md:col-span-2 rounded-3xl bg-card border border-border/50 p-8 flex flex-col justify-between relative group overflow-hidden"
+          >
+            <div className={`absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-cyan-500/5 ${isMobile ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} transition-opacity duration-500`} />
+            <div className="relative z-10">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="p-2 bg-primary/5 rounded-lg">
+                  <Bot className="h-6 w-6 text-primary" />
+                </div>
+              </div>
+              <h3 className="text-2xl font-bold mb-2">{profileData.ventures[5].name}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed max-w-lg">{profileData.ventures[5].description}</p>
+              <div className="flex flex-wrap gap-2 mt-6">
+                {profileData.ventures[5].stats?.map((stat, i) => (
+                  <span key={i} className="px-3 py-1 bg-secondary text-secondary-foreground text-xs font-mono rounded-md uppercase tracking-wider">
+                    {stat}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className={`relative z-10 mt-6 pt-4 border-t border-border/50 flex items-center justify-between ${!isMobile && 'opacity-0 group-hover:opacity-100'} transition-opacity duration-300`}>
+              <a href={profileData.ventures[5].url} target="_blank" className="text-sm font-medium hover:underline inline-flex items-center">
+                axii.vercel.app <ExternalLink className="ml-1 h-3 w-3" />
+              </a>
+            </div>
+          </motion.div>
+
+          {/* 4. Enceipt (Utility) - Bottom Left */}
           <motion.div
              whileHover={{ y: -5 }}
              className="md:col-span-1 rounded-3xl bg-card border border-border/50 p-8 flex flex-col justify-between relative group"
@@ -141,7 +170,7 @@ export default function Ventures() {
                <Cpu className="h-6 w-6 mb-4 opacity-80" />
                <h3 className="text-xl font-bold mb-2">Grit AI System</h3>
                <p className="text-primary-foreground/70 text-sm">
-                 Multi-tenant AI infrastructure powering Outpost and Kyoraq.
+                 Multi-tenant AI infrastructure powering Kyoraq, Outpost, and Axii.
                </p>
              </div>
              <div className="relative z-10 mt-4">

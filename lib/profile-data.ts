@@ -119,6 +119,15 @@ export const profileData: ProfileData = {
       status: "Operational",
       stats: ["Hyperlocal", "Logistics"],
     },
+    {
+      id: "axii",
+      name: "Axii",
+      role: "Outbound Automation Engine",
+      url: "https://axii.vercel.app",
+      description: "An autonomous B2B lead generation system. Set a target niche and location — the swarm scrapes, enriches, scores, and drafts personalized outreach. You wake up to qualified leads, not spreadsheets.",
+      status: "Live",
+      stats: ["Autonomous Scraping", "AI Scoring", "Outbound Automation"],
+    },
   ],
   clientProjects: [
     {

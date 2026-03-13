@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 
-//Working with Google Forms to handle submissions
 
 const GOOGLE_FORM_ACTION_URL =
   "https://docs.google.com/forms/u/0/d/e/1FAIpQLSeKDvLACmCQ1yL3EkK2vM8sxuatRKtlOqr27tvpU67v-fcq5w/formResponse"
